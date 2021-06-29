@@ -1,11 +1,14 @@
-$(document).ready(function(){
-    $('#btnSubmit').on('click',function(){
+$(document).ready(function () {
+    $('#btnSubmit').on('click', function () {
 
         if (hasEmptyRequiredInput()) {
 
             $('#alert').modal('show');
             return false;
         }
+
+        examResult(Get_scores());
+        $('#end').modal('show');
         Get_scores();
         return false;
     });
@@ -19,17 +22,16 @@ function inputsInformation(inputs) {
         var element = $('#' + input.id);
 
         if (element && _.isEmpty(element.val())) {
-            $('#'+input.divId).addClass('has-error');
+            $('#' + input.divId).addClass('has-error');
             text += input.text + '';
-        }
-        else {
+        } else {
             $('#' + input.divId).removeClass('has-error');
         }
     }
     return text;
 }
 
-function hasEmptyRequiredInput(){
+function hasEmptyRequiredInput() {
     var requiredInputs = [
         {
             id: 'studentClass',
@@ -49,11 +51,11 @@ function hasEmptyRequiredInput(){
     ];
 
     var text = inputsInformation(requiredInputs);
-    if(text !== ''){
+    if (text !== '') {
 
         return true;
     }
-        return false;
+    return false;
 }
 
 function Get_scores() {
@@ -61,12 +63,13 @@ function Get_scores() {
     var value = fullInTopics() + choiceTopics() + multipleChoiceTopics() + trueOrFalseTopics() + shortAnswerTopics();
     $("#scores").text(value);
     $('#divScores').addClass('text-danger');
+    return value;
 
 }
 
 function fullInTopics() {
-    var fullInSubject1 = new Subject('fullInSubject', ['统一建模语言'], 1, 5);
-    var fullInSubject2 = new Subject('fullInSubject', ['继承性', '多态性', '封装性'], 3, 5);
+    var fullInSubject1 = new Subject('fullInSubject', ['Унифицированный язык моделирования'], 1, 5);
+    var fullInSubject2 = new Subject('fullInSubject', ['Наследование', 'Полиморфизм', 'Инкапсуляция'], 3, 5);
 
     var value1_1_1 = $('#gap1').val();
 
@@ -77,7 +80,7 @@ function fullInTopics() {
     var value1_2 = [];
     value1_2.push($('#gap2_1').val());
     value1_2.push($('#gap2_2').val());
-    value1_2.push($('gap2_3').val());
+    value1_2.push($('#gap2_3').val());
 
     for (var i = 0; i < fullInSubject2.answer.length; i++) {
         for (var j = 0; j < value1_2.length; j++) {
@@ -111,8 +114,10 @@ function multipleChoiceTopics() {
     var multipleChoiceSubject = new Subject('multipleChoiceSubject',
         [
             ['A', 'B', 'D'],
-            ['A', 'B', 'C']
-        ], 2, 10);
+            ['A', 'B', 'C'],
+            ['B', 'C', 'D'],
+            ['C', 'D']
+        ], 4, 5);
 
     var multipleChoiceSubject1 = new MultipleChoiceSubject('check_ans_1');
     var value1 = multipleChoiceSubject1.calculation();
@@ -130,6 +135,26 @@ function multipleChoiceTopics() {
     if (answer2.length == value2.length) {
         var diffB = _.difference(value2, answer2);
         if (_.isEmpty(diffB)) {
+            multipleChoiceSubject.scores += multipleChoiceSubject.scorePerSubject;
+        }
+    }
+
+    var multipleChoiceSubject3 = new MultipleChoiceSubject('check_ans_3');
+    var value3 = multipleChoiceSubject3.calculation();
+    var answer3 = multipleChoiceSubject.answer[2];
+    if (answer3.length == value3.length) {
+        var diffC = _.difference(value3, answer3);
+        if (_.isEmpty(diffC)) {
+            multipleChoiceSubject.scores += multipleChoiceSubject.scorePerSubject;
+        }
+    }
+
+    var multipleChoiceSubject4 = new MultipleChoiceSubject('check_ans_4');
+    var value4 = multipleChoiceSubject4.calculation();
+    var answer4 = multipleChoiceSubject.answer[3];
+    if (answer4.length == value4.length) {
+        var diffD = _.difference(value4, answer4);
+        if (_.isEmpty(diffD)) {
             multipleChoiceSubject.scores += multipleChoiceSubject.scorePerSubject;
         }
     }
@@ -154,7 +179,7 @@ function trueOrFalseTopics() {
 
 function shortAnswerTopics() {
     var shortAnswerSubject = new Subject('shortAnswerSubject',
-        ['模型是对现实世界的简化和抽象,模型是对所研究的系统、过程、事物或概念的一种表达形式。可以是物理实体;可以是某种图形;或者是一种数学表达式。'],
+        ['Модель - это упрощение и абстракция реального мира, а модель - это форма выражения исследуемой системы, процесса, вещи или концепции. Это может быть физическая сущность, определенная фигура или математическое выражение.'],
         1, 20);
     var value5 = $('#short5').val();
 
@@ -162,4 +187,24 @@ function shortAnswerTopics() {
         shortAnswerSubject.scores = shortAnswerSubject.scorePerSubject;
     }
     return shortAnswerSubject.scores;
+}
+
+function examResult(result) {
+    var resultWindow = document.getElementById('end');
+    var resultBody = resultWindow.querySelector('.modal-body');
+    var rating;
+    if (result < 50) {
+        rating = 2;
+    } else if (result >= 50 && result < 65) {
+        rating = 3;
+    } else if (result >= 65 && result < 80) {
+        rating = 4;
+    } else if (result >= 80) {
+        rating = 5;
+    }
+    resultBody.innerHTML = '';
+    resultBody.innerHTML += `
+<p>Вы закончили тест！</p>
+<p>Ваш результат ${result} баллов!</p>
+Оценка: ${rating}`
 }

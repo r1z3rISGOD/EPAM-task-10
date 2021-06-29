@@ -6,7 +6,7 @@
 <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>统一建模语言理论测试</title>
+<title>Единый тест по знаниям теории языка моделирования</title>
 <!-- add css sources at here -->
 <!--<link rel="stylesheet" href="css/myStyle.css"/>-->
 <link rel="stylesheet" href="lib/bootstrap-3.2.0-dist/css/bootstrap.css"/>
@@ -34,25 +34,42 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true">&times;</span><span class="sr-only">close</span></button>
-                    <h3 class="modal-title text-danger">警告！</h3>
+                    <h3 class="modal-title text-danger">Внимание！</h3>
                 </div>
                 <div class="modal-body">
-                    <p>请认真检查并填写必填项目！</p>
+                    <p>Пожалуйста, внимательно проверьте и заполните необходимые поля！</p>
                 </div>
                 <div class="modal-footer">
-                   <button type="button" class="btn btn-primary" data-dismiss="modal">请确认信息</button>
+                   <button type="button" class="btn btn-primary" data-dismiss="modal">Подтвердите информацию</button>
                 </div>
             </div>
         </div>
     </div>
-    <h1 class="text-center">统一建模语言理论测试</h1>
+
+       <div id="end" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+           <div class="modal-dialog modal-sm">
+               <div class="modal-content">
+                   <div class="modal-header">
+                       <button type="button" class="close" data-dismiss="modal">
+                           <span aria-hidden="true">&times;</span><span class="sr-only">close</span></button>
+                       <h3 class="modal-title text-success">Поздравляем！</h3>
+                   </div>
+                   <div class="modal-body">
+                   </div>
+                   <div class="modal-footer">
+                       <button type="button" class="btn btn-primary" data-dismiss="modal">Выйти</button>
+                   </div>
+               </div>
+           </div>
+       </div>
+    <h1 class="text-center">Единый тест по знаниям теории языка моделирования</h1>
 
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
-                <div class="col-md-4">考试科目:统一建模语言UMl</div>
-                <div class="col-md-4">时间:100分</div>
-                <div class="col-md-4" id="divScores">得分:<span id="scores" class="text-danger"></span></div>
+                <div class="col-md-4">Тема: Унифицированный язык моделирования UML</div>
+                <div class="col-md-4">Время: 100 минут</div>
+                <div class="col-md-4" id="divScores">Баллы:<span id="scores" class="text-danger"></span></div>
             </div>
         </div>
     </div>
@@ -62,20 +79,26 @@
             <div class="row">
                 <div id="class" class="col-md-4 form-group">
                     <label class="control-label">
-                      班级（必填）：
+                      Класс（обязательно)：
                       <input type="text" id="studentClass" name="studentClass" class="form-control">
                     </label>
                 </div>
                 <div id="number" class="col-md-4 form-group">
                     <label class="control-label">
-                      学号（必填）：
+                      Номер билета（обязательно)：
                       <input type="text" id="studentNumber" name="studentNumber" class="form-control">
                     </label>
                 </div>
                 <div id="name" class="col-md-4 form-group">
                     <label class="control-label">
-                       姓名（必填）：
-                       <input type="text" id="studentName" name="studentName" class="form-control">
+                       Имя（обязательно)：
+<!--                       <input type="text" id="studentName" name="studentName" class="form-control">-->
+                        <select name="studentName" id="studentName" class="form-control">
+                            <option value=""></option>
+                            <option value="Владислав Быков">Владислав Быков</option>
+                            <option value="Кирилл Капытов">Кирилл Капытов</option>
+                            <option value="Евгений Гусев">Евгений Гусев</option>
+                        </select>
                     </label>
                 </div>
             </div>
@@ -85,13 +108,13 @@
 
     <div class="panel panel-success">
     <div class="panel-heading">
-       <h2 class="panel-title">一、填空题(每空5分，共4空)</h2>
+       <h2 class="panel-title">Заполните пропуски (5 баллов за ответ，всего 4 вопроса)</h2>
     </div>
         <div class="panel-body">
             <ol>
                 <li class="">
                     <div class="form-group">
-                        <label class="control-label">UML 的中文全称是:</label>
+                        <label class="control-label">Расшифровка аббривиатуры UML на русском:</label>
                         <div class="form-inline">
                             <label><input type="text" name="gap_ans_1" id="gap1" class="form-control">.</label>
                         </div>
@@ -99,7 +122,7 @@
                 </li>
                 <li>
                     <div class="form-group">
-                        <label class="control-label">对象最突出的特征是:</label>
+                        <label class="control-label">Самые заметные особенности:</label>
                         <div class="form-inline">
                             <label><input type="text" name="gap_ans_2" id="gap2_1" class="form-control"></label>
                             <label><input type="text" name="gap_ans_2" id="gap2_2" class="form-control"></label>
@@ -114,41 +137,41 @@
 
    <div class="panel panel-success">
        <div class="panel-heading">
-           <h2 class="panel-title">二 、选择题(每题10分，共2题)</h2>
+           <h2 class="panel-title">Вопросы с несколькими вариантами ответов (по 10 баллов за ответ，всего 2 вопроса)</h2>
        </div>
        <div class="panel-body">
            <ol>
                <li>
                    <div class="form-group">
-                       <label class="control-label"> UML与软件工程的关系是:</label>
+                       <label class="control-label"> Связь между UML и разработкой ПО:</label>
                        <div class="radio">
-                           <label><input type="radio" name="radio_ans_1" id="sel1_1" value="A">(A)UML就是软件工程</label>
+                           <label><input type="radio" name="radio_ans_1" id="sel1_1" value="A">(A)UML - это разработка ПО</label>
                        </div>
                        <div class="radio">
-                           <label><input type="radio" name="radio_ans_1" id="sel1_2" value="B">(B)UML参与到软件工程中软件开发过UML</label>
+                           <label><input type="radio" name="radio_ans_1" id="sel1_2" value="B">(B)UML участвует в разработке ПО, а разработка ПО была частью UML</label>
                        </div>
                        <div class="radio">
-                           <label><input type="radio" name="radio_ans_1" id="sel1_3" value="C">(C)UML与软件工程无关</label>
+                           <label><input type="radio" name="radio_ans_1" id="sel1_3" value="C">(C)UML не имеет ничего общего с разработкой ПО</label>
                        </div>
                        <div class="radio">
-                           <label><input type="radio" name="radio_ans_1" id="sel1_4" value="D">(D)UML是软件工程的一部分</label>
+                           <label><input type="radio" name="radio_ans_1" id="sel1_4" value="D">(D)UML является частью разработки ПО</label>
                        </div>
                    </div>
                </li>
                <li>
                    <div class="form-group">
-                       <label class="control-label"> Java 语言支持:</label>
+                       <label class="control-label"> Поддержка языка Java:</label>
                        <div class="radio">
-                           <label> <input type="radio" name="radio_ans_2" id="sel2_1" value="A">(A)单继承</label>
+                           <label> <input type="radio" name="radio_ans_2" id="sel2_1" value="A">(A)Одинарное наследование</label>
                        </div>
                        <div class="radio">
-                           <label><input type="radio" name="radio_ans_2" id="sel2_2" value="B">(B)多继承</label>
+                           <label><input type="radio" name="radio_ans_2" id="sel2_2" value="B">(B)Множественное наследование</label>
                        </div>
                        <div class="radio">
-                           <label><input type="radio" name="radio_ans_2" id="sel2_3" value="C">(C)单继承和多继承都支持</label>
+                           <label><input type="radio" name="radio_ans_2" id="sel2_3" value="C">(C)Поддерживается как одинарное, так и множественное наследование</label>
                        </div>
                        <div class="radio">
-                           <label><input type="radio" name="radio_ans_2" id="sel2_4" value="D">(D)继承和多继承都不支持</label>
+                           <label><input type="radio" name="radio_ans_2" id="sel2_4" value="D">(D)Одинарное и множественное наследования не поддерживаются</label>
                        </div>
                    </div>
                </li>
@@ -159,41 +182,75 @@
 
    <div class="panel panel-success">
        <div class="panel-heading">
-           <h2 class="panel-title">三、多选题(每题10分，共2题)</h2>
+           <h2 class="panel-title">Вопросы с несколькими вариантами ответа (по 5 баллов за ответ，всего 4 вопроса)</h2>
        </div>
        <div class="panel-body">
            <ol>
                <li>
                    <div class="form-group">
-                       <label class="control-label">用例的粒度分为以下哪三种。</label>
+                       <label class="control-label"> По степени детализации, варианты использования делятся на 3 типа:</label>
                        <div class="checkbox">
-                          <label><input type="checkbox" name="check_ans_1" id="mul1_1" value="A">(A)概述级</label>
+                          <label><input type="checkbox" name="check_ans_1" id="mul1_1" value="A">(A)Уровень обзора</label>
                        </div>
                        <div class="checkbox">
-                          <label><input type="checkbox" name="check_ans_1" id="mul1_2" value="B">(B)需求级</label>
+                          <label><input type="checkbox" name="check_ans_1" id="mul1_2" value="B">(B)Уровень спроса</label>
                        </div>
                        <div class="checkbox">
-                          <label><input type="checkbox" name="check_ans_1" id="mul1_3" value="C">(C)用户目标级</label>
+                          <label><input type="checkbox" name="check_ans_1" id="mul1_3" value="C">(C)Целевой уровень пользователя</label>
                        </div>
                        <div class="checkbox">
-                          <label><input type="checkbox" name="check_ans_1" id="mul1_4" value="D">(D)子功能级</label>
+                          <label><input type="checkbox" name="check_ans_1" id="mul1_4" value="D">(D)Уровень подфункции</label>
                        </div>
                    </div>
                </li>
                <li>
                    <div class="form-group">
-                       <label class="control-label">类图由以下哪三部分组成。</label>
+                       <label class="control-label">Из каких трех частей состоит диаграмма классов:</label>
                        <div class="checkbox">
-                          <label><input type="checkbox" name="check_ans_2" id="mul2_1" value="A">(A)名称(Name)</label>
+                          <label><input type="checkbox" name="check_ans_2" id="mul2_1" value="A">(A)Имя</label>
                        </div>
                        <div class="checkbox">
-                          <label><input type="checkbox" name="check_ans_2" id="mul2_2" value="B">(B)属性(Attribute)</label>
+                          <label><input type="checkbox" name="check_ans_2" id="mul2_2" value="B">(B)Аттрибут</label>
                        </div>
                        <div class="checkbox">
-                          <label><input type="checkbox" name="check_ans_2" id="mul2_3" value="C">(C)操作(Operation)</label>
+                          <label><input type="checkbox" name="check_ans_2" id="mul2_3" value="C">(C)Операция</label>
                        </div>
                        <div class="checkbox">
-                          <label><input type="checkbox" name="check_ans_2" id="mul2_4" value="D">(D)方法(Function)</label>
+                          <label><input type="checkbox" name="check_ans_2" id="mul2_4" value="D">(D)Функция</label>
+                       </div>
+                   </div>
+               </li>
+               <li>
+                   <div class="form-group">
+                       <label class="control-label">Из каких фигур состят диаграммы активности:</label>
+                       <div class="checkbox">
+                           <label><input type="checkbox" name="check_ans_3" id="mul3_1" value="A">(A)Квадрат</label>
+                       </div>
+                       <div class="checkbox">
+                           <label><input type="checkbox" name="check_ans_3" id="mul3_2" value="B">(B)Ромбы</label>
+                       </div>
+                       <div class="checkbox">
+                           <label><input type="checkbox" name="check_ans_3" id="mul3_3" value="C">(C)Черный круг</label>
+                       </div>
+                       <div class="checkbox">
+                           <label><input type="checkbox" name="check_ans_3" id="mul3_4" value="D">(D)Широкие полосы</label>
+                       </div>
+                   </div>
+               </li>
+               <li>
+                   <div class="form-group">
+                       <label class="control-label">Выберите правельные соответствия фигура - узел для диаграммы активности:</label>
+                       <div class="checkbox">
+                           <label><input type="checkbox" name="check_ans_4" id="mul4_1" value="A">(A)Квадрат - Конечный узел деятельности</label>
+                       </div>
+                       <div class="checkbox">
+                           <label><input type="checkbox" name="check_ans_4" id="mul4_2" value="B">(B)Ромбы - Узел управления</label>
+                       </div>
+                       <div class="checkbox">
+                           <label><input type="checkbox" name="check_ans_4" id="mul4_3" value="C">(C)Черный круг - Начальный узел деятельности</label>
+                       </div>
+                       <div class="checkbox">
+                           <label><input type="checkbox" name="check_ans_4" id="mul4_4" value="D">(D)Широкие полосы - Узел объединения</label>
                        </div>
                    </div>
                </li>
@@ -203,13 +260,13 @@
 
    <div class="panel panel-success">
        <div class="panel-heading">
-           <h2 class="panel-title">四、判断题(每题10分，共2题)</h2>
+           <h2 class="panel-title">Верно или неверно (по 10 баллов за ответ，всего 2 вопроса)</h2>
        </div>
        <div class="panel-body">
            <ol>
                <li>
                    <div class="form-group">
-                       <label class="control-label">用例图只是用于和客户交流和沟通的,用于确定需求 。</label>
+                       <label class="control-label"> Диаграмма вариантов использования используется только для связи и взаимодействия с клиентами, чтобы определить требования</label>
                            <div class="radio">
                                <label><input type="radio" id="tureOrFalse1_1" name="ans_1" value="yes">
                                    <span class="glyphicon glyphicon-ok text-success"></span>
@@ -226,7 +283,7 @@
                </li>
                <li>
                    <div class="form-group">
-                       <label class="control-label"> 在状态图中,终止状态在一个状态图中允许有任意多个。</label>
+                       <label class="control-label"> На диаграмме состояний разрешено любое количество состояний завершения</label>
                            <div class="radio">
                                <label><input type="radio" id="tureOrFalse2_1" name="ans_2" value="yes">
                                    <span class="glyphicon glyphicon-ok text-success"></span>
@@ -247,14 +304,14 @@
 
    <div class="panel panel-success">
        <div class="panel-heading">
-           <h2 class="panel-title">五、简答题(每题20分，共1题)</h2>
+           <h2 class="panel-title">Вопросы с краткими ответами(20 баллов за ответ，всего 1 вопрос)</h2>
        </div>
        <div class="panel-body">
            <ol>
                <li>
                    <div class="form-group">
                        <label class="control-label">
-                           简述什么是模型以及模型的表现形式?
+                           Кратко опишите, что такое модель и как она выражается?
                        </label>
                    </div>
                    <label><textarea rows="4" id="short5"></textarea></label>
@@ -264,7 +321,7 @@
    </div>
 
    <p class="text-center">
-   <input type="submit" id="btnSubmit" class="btn btn-success" value="提交">（请仔细核对后提交！）
+   <input type="submit" id="btnSubmit" class="btn btn-success" value="Отправить">（Пожалуйста, внимательно проверьте перед отправкой）
 
    </form>
  </div>
