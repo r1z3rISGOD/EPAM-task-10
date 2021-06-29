@@ -190,8 +190,7 @@ function shortAnswerTopics() {
 }
 
 function examResult(result) {
-    var resultWindow = document.getElementById('end');
-    var resultBody = resultWindow.querySelector('.modal-body');
+    var resultBody = $('#end').$('.modal-body');
     var rating;
     if (result < 50) {
         rating = 2;
