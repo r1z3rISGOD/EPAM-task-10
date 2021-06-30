@@ -201,16 +201,6 @@ function examResult(result) {
     } else if (result >= 80) {
         rating = 5;
     }
-
-//     const endText = $("<p></p>").text('Вы закончили тест').html()
-//     const scoreText = $("<p></p>").text(`Ваш результат ${result} баллов!`).html()
-//     const ratingText = $("<p></p>").text(`Ваша оценка ${rating}`).html()
-//     resultBody.html(`
-//     <p class="123"></p>
-//     <p class="222"></p>
-//     <p class="333"></p>
-// `)
-
     $(resultBody).empty().append(
         $("<p></p>").text('Вы закончили тест'),
         $("<p></p>").text(`Ваш результат ${result} баллов!`),
