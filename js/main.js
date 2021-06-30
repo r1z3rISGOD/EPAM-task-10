@@ -190,7 +190,7 @@ function shortAnswerTopics() {
 }
 
 function examResult(result) {
-    var resultBody = $('#end').$('.modal-body');
+    var resultBody = $('#end').find('.modal-body');
     var rating;
     if (result < 50) {
         rating = 2;
@@ -201,9 +201,19 @@ function examResult(result) {
     } else if (result >= 80) {
         rating = 5;
     }
-    resultBody.innerHTML = '';
-    resultBody.innerHTML += `
-<p>Вы закончили тест！</p>
-<p>Ваш результат ${result} баллов!</p>
-Оценка: ${rating}`
+
+//     const endText = $("<p></p>").text('Вы закончили тест').html()
+//     const scoreText = $("<p></p>").text(`Ваш результат ${result} баллов!`).html()
+//     const ratingText = $("<p></p>").text(`Ваша оценка ${rating}`).html()
+//     resultBody.html(`
+//     <p class="123"></p>
+//     <p class="222"></p>
+//     <p class="333"></p>
+// `)
+
+    $(resultBody).empty().append(
+        $("<p></p>").text('Вы закончили тест'),
+        $("<p></p>").text(`Ваш результат ${result} баллов!`),
+        $("<p></p>").text(`Ваша оценка ${rating}`)
+        )
 }
